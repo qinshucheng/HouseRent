@@ -43,8 +43,8 @@
  	<!-- 
  	<script>
  		$(function(){			
- 			var manager = '<%=(String)session.getAttribute("manager")%>'; --%>
- 			var user = '<%=(String)session.getAttribute("userName")%>'; --%>
+ 			var manager = '<%=(String)session.getAttribute("manager")%>';
+ 			var user = '<%=(String)session.getAttribute("userName")%>';
  			alert('user='+user+'\n'+'manager:'+manager);
  			if(user!="undefined"&&user!=null){
  				alert("11111");
