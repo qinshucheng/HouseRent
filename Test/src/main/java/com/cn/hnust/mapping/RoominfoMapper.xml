@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.RoominfoDao" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Roominfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="pricetype" property="pricetype" jdbcType="VARCHAR" />
+    <result column="roomtype" property="roomtype" jdbcType="VARCHAR" />
+    <result column="renttype" property="renttype" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="fit" property="fit" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="INTEGER" />
+    <result column="floor" property="floor" jdbcType="VARCHAR" />
+    <result column="roomstyle" property="roomstyle" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="introduct" property="introduct" jdbcType="VARCHAR" />
+    <result column="publisher" property="publisher" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="user" property="user" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, price, pricetype, roomtype, renttype, location, fit, area, floor, roomstyle, 
+    image, introduct, publisher, phone, time, user
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from roominfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.hnust.pojo.Roominfo" >
+    insert into roominfo (id, title, price, 
+      pricetype, roomtype, renttype, 
+      location, fit, area, 
+      floor, roomstyle, image, 
+      introduct, publisher, phone, 
+      time, user)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, 
+      #{pricetype,jdbcType=VARCHAR}, #{roomtype,jdbcType=VARCHAR}, #{renttype,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR}, #{fit,jdbcType=VARCHAR}, #{area,jdbcType=INTEGER}, 
+      #{floor,jdbcType=VARCHAR}, #{roomstyle,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{introduct,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR}, #{user,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hnust.pojo.Roominfo" >
+    insert into roominfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="pricetype != null" >
+        pricetype,
+      </if>
+      <if test="roomtype != null" >
+        roomtype,
+      </if>
+      <if test="renttype != null" >
+        renttype,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="fit != null" >
+        fit,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="floor != null" >
+        floor,
+      </if>
+      <if test="roomstyle != null" >
+        roomstyle,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="introduct != null" >
+        introduct,
+      </if>
+      <if test="publisher != null" >
+        publisher,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="user != null" >
+        user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="pricetype != null" >
+        #{pricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="roomtype != null" >
+        #{roomtype,jdbcType=VARCHAR},
+      </if>
+      <if test="renttype != null" >
+        #{renttype,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="fit != null" >
+        #{fit,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=INTEGER},
+      </if>
+      <if test="floor != null" >
+        #{floor,jdbcType=VARCHAR},
+      </if>
+      <if test="roomstyle != null" >
+        #{roomstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="introduct != null" >
+        #{introduct,jdbcType=VARCHAR},
+      </if>
+      <if test="publisher != null" >
+        #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="user != null" >
+        #{user,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hnust.pojo.Roominfo" >
+    update roominfo
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="pricetype != null" >
+        pricetype = #{pricetype,jdbcType=VARCHAR},
+      </if>
+      <if test="roomtype != null" >
+        roomtype = #{roomtype,jdbcType=VARCHAR},
+      </if>
+      <if test="renttype != null" >
+        renttype = #{renttype,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="fit != null" >
+        fit = #{fit,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=INTEGER},
+      </if>
+      <if test="floor != null" >
+        floor = #{floor,jdbcType=VARCHAR},
+      </if>
+      <if test="roomstyle != null" >
+        roomstyle = #{roomstyle,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="introduct != null" >
+        introduct = #{introduct,jdbcType=VARCHAR},
+      </if>
+      <if test="publisher != null" >
+        publisher = #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="user != null" >
+        user = #{user,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hnust.pojo.Roominfo" >
+    update roominfo
+    set title = #{title,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      pricetype = #{pricetype,jdbcType=VARCHAR},
+      roomtype = #{roomtype,jdbcType=VARCHAR},
+      renttype = #{renttype,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      fit = #{fit,jdbcType=VARCHAR},
+      area = #{area,jdbcType=INTEGER},
+      floor = #{floor,jdbcType=VARCHAR},
+      roomstyle = #{roomstyle,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      introduct = #{introduct,jdbcType=VARCHAR},
+      publisher = #{publisher,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      user = #{user,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- ==============以下内容是根据自身业务扩展的内容======================= -->
+  <select id="selectByMulti" resultMap="BaseResultMap" parameterType="com.cn.hnust.pojo.Roominfo" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    <if test="roomtype != null" >
+    where roomtype = #{roomtype,jdbcType=VARCHAR},
+    </if>
+    <if test="renttype != null" >
+    and renttype = #{renttype,jdbcType=VARCHAR}
+    </if>
+    <if test="fit != null" >
+    and fit = #{fit,jdbcType=VARCHAR}
+    </if>
+    <if test="roomstyle != null" >
+    and roomstyle = #{roomstyle,jdbcType=VARCHAR}
+    </if>
+  </select>
+  
+  <select id="selectByKeyword" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where title like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or title like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or price like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or pricetype like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or roomtype like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or renttype like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or location like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or fit like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or area like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or floor like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or roomstyle like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+    or introduct like CONCAT(CONCAT('%', #{keyword, jdbcType=VARCHAR}),'%')
+  </select>
+  
+  <select id="getAllRoomInfo" resultMap="BaseResultMap">
+       select 
+       <include refid="Base_Column_List" /> 
+       from roominfo
+  </select>
+   
+  <select id="selectByRoomtype" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{roomtype,jdbcType=VARCHAR}
+  </select>
+  
+   <select id="selectByRenttype" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where renttype = #{renttype,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByFit" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where fit = #{fit,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByRoomstyle" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomstyle = #{roomstyle,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByUser" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where user = #{user,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 双条件 -->
+  <select id="selectByAB" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{0} 
+    and renttype = #{1}
+  </select>
+  <select id="selectByAC" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{0} and fit = #{1}
+  </select>
+  <select id="selectByAD" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{0} and roomstyle = #{1}
+  </select>
+  <select id="selectByBC" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where renttype = #{0} and fit = #{1}
+  </select>
+  <select id="selectByBD" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where renttype = #{0} and roomstyle = #{1}
+  </select>
+  <select id="selectByCD" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where fit = #{0} and roomstyle = #{1}
+  </select>
+  <!-- 三条件 -->
+  <select id="selectByABC" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{0} and renttype = #{1} and fit = #{2}
+  </select>
+  <select id="selectByABD" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{0} and renttype = #{1} and roomstyle = #{2}
+  </select>
+  <select id="selectByACD" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{0} and renttype = #{1} and fit = #{2}
+  </select>
+  <select id="selectByBCD" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where renttype = #{0} and fit = #{1} and roomstyle = #{2}
+  </select>
+  <!-- 四条件 -->
+  <select id="selectByABCD" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from roominfo
+    where roomtype = #{0} and renttype = #{1} and fit = #{2} and roomstyle = #{3}
+  </select>
+</mapper>

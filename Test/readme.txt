@@ -1,0 +1,3 @@
+项目部署说明：
+在webapp目录下创建image文件保存图片文件
+导入数据库文件mavendb.sql，修改表roominfo中的image元素至1中image文件夹路径

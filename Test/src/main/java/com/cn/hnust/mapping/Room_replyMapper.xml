@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.hnust.dao.Room_replyDao" >
+  <resultMap id="BaseResultMap" type="com.cn.hnust.pojo.Room_reply" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="room_id" property="roomId" jdbcType="INTEGER" />
+    <result column="reply" property="reply" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="replyer" property="replyer" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, room_id, reply, time, replyer
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from room_reply
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from room_reply
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.hnust.pojo.Room_reply" >
+    insert into room_reply (id, room_id, reply, 
+      time, replyer)
+    values (#{id,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER}, #{reply,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR}, #{replyer,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cn.hnust.pojo.Room_reply" >
+    insert into room_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="roomId != null" >
+        room_id,
+      </if>
+      <if test="reply != null" >
+        reply,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="replyer != null" >
+        replyer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roomId != null" >
+        #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="reply != null" >
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="replyer != null" >
+        #{replyer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cn.hnust.pojo.Room_reply" >
+    update room_reply
+    <set >
+      <if test="roomId != null" >
+        room_id = #{roomId,jdbcType=INTEGER},
+      </if>
+      <if test="reply != null" >
+        reply = #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="replyer != null" >
+        replyer = #{replyer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cn.hnust.pojo.Room_reply" >
+    update room_reply
+    set room_id = #{roomId,jdbcType=INTEGER},
+      reply = #{reply,jdbcType=VARCHAR},
+      time = #{time,jdbcType=VARCHAR},
+      replyer = #{replyer,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- ==============以下内容是根据自身业务扩展的内容======================= -->
+  <select id="selectAllByRoom_id" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    id, room_id, reply, time, replyer
+    from room_reply
+    where room_id = #{room_id,jdbcType=INTEGER}
+  </select>
+  
+</mapper>
