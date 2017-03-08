@@ -40,21 +40,23 @@
 	    });
 	</script>
 	<!-- 当管理员登录时，不显示发布房屋信息按钮 TODO-->
-	<script>
-		$(function(){			
-			var manager = '<%=(String)session.getAttribute("manager")%>';
-			var user = '<%=(String)session.getAttribute("userName")%>';
-			alert('user='+user+'\n'+'manager:'+manager);
-			if(user!="undefined"&&user!=null){
-				alert("11111");
-				$("#publish").toggle(500);
-			}
-			if(manager!="undefined"&&manager!=null){
-				alert("22222");
-				$("#publish").hide();
-			}
-		});
-	</script>
+ 	<!-- 
+ 	<script>
+ 		$(function(){			
+ 			var manager = '<%=(String)session.getAttribute("manager")%>'; --%>
+ 			var user = '<%=(String)session.getAttribute("userName")%>'; --%>
+ 			alert('user='+user+'\n'+'manager:'+manager);
+ 			if(user!="undefined"&&user!=null){
+ 				alert("11111");
+ 				$("#publish").toggle(500);
+ 			}
+ 			if(manager!="undefined"&&manager!=null){
+ 				alert("22222");
+ 				$("#publish").hide();
+ 			}
+ 		});
+ 	</script>
+ 	-->
 	<script>
 		$(function(){
 			var $roomtyperadio  = $("input[name=roomtype]");
