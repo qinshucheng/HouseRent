@@ -32,6 +32,7 @@
 				document.signin_form.action="managerlogin"
 			}
 		}
+		
 	</script>
   </head>
   <body>
